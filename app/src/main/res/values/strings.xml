@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">DesafioMobileMarvel</string>
+    <string name="app_name">Desafio Mobile Marvel</string>
+
+    <string name="ERROR_UNEXPECTED">Um erro inesperado ocorreu. Tente novamente mais tarde.</string>
+    <string name="ERROR_INTERNET_CONNECTION">Conexão à internet necessária para uso da applicação.</string>
+
+    <string name="name">Nome</string>
+    <string name="description">Descrição</string>
+    <string name="description_character_image">Imagem contendo um personagem</string>
 </resources>

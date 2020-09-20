@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.desafiomobilemarvel.R
 import com.example.desafiomobilemarvel.service.constants.MarvelConstants
 import com.example.desafiomobilemarvel.service.listener.APIListener
-import com.example.desafiomobilemarvel.service.model.ComicModel
+import com.example.desafiomobilemarvel.service.model.comic.ResponseComicModel
 import com.example.desafiomobilemarvel.service.repository.remote.ComicService
 import com.example.desafiomobilemarvel.service.repository.remote.RetrofitClient
 import com.google.gson.Gson
@@ -16,24 +16,23 @@ class ComicRepository(val context: Context) : BaseRepository(context) {
 
     private val mRemote = RetrofitClient.createService(ComicService::class.java)
 
-    private fun list(
-        call: Call<List<ComicModel>>,
-        listener: APIListener<List<ComicModel>>
-    ) {
+    fun list(characterId: Int, listener: APIListener<ResponseComicModel>) {
+
+        val call: Call<ResponseComicModel> = mRemote.list(characterId)
 
         if (!isConnectionAvailable(context)) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
         }
 
-        call.enqueue(object : Callback<List<ComicModel>> {
-            override fun onFailure(call: Call<List<ComicModel>>, t: Throwable) {
+        call.enqueue(object : Callback<ResponseComicModel> {
+            override fun onFailure(call: Call<ResponseComicModel>, t: Throwable) {
                 listener.onFailure(context.getString(R.string.ERROR_UNEXPECTED))
             }
 
             override fun onResponse(
-                call: Call<List<ComicModel>>,
-                response: Response<List<ComicModel>>
+                call: Call<ResponseComicModel>,
+                response: Response<ResponseComicModel>
             ) {
                 if (response.code() != MarvelConstants.HTTP.SUCESS) {
                     val validation =

@@ -32,7 +32,7 @@ class CharacterViewHolder(itemView: View, val listener: CharacterListener) :
             .fallback(R.mipmap.ic_launcher)
             .into(this.mImageCharacter)
 
-        mTextDescription.setOnClickListener { listener.onListClick(character.id) }
+        itemView.setOnClickListener { listener.onListClick(character.id) }
 
     }
 

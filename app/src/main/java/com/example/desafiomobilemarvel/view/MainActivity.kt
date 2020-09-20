@@ -1,5 +1,6 @@
 package com.example.desafiomobilemarvel.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.desafiomobilemarvel.R
 import com.example.desafiomobilemarvel.service.listener.CharacterListener
 import com.example.desafiomobilemarvel.view.adapter.CharacterAdapter
-import com.example.desafiomobilemarvel.view.viewmodel.MainViewModel
+import com.example.desafiomobilemarvel.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,11 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         mListener = object : CharacterListener {
             override fun onListClick(id: Int) {
-                //val intent = Intent(context, CharacterDetailsActivity::class.java)
-                //val bundle = Bundle()
-                //bundle.putInt(MarvelConstants.BUNDLE.TASKID, id)
-                //intent.putExtras(bundle)
-                //startActivity(intent)
+                val intent = Intent(applicationContext, CharacterDetailActivity::class.java)
+                val bundle = Bundle()
+                bundle.putInt("id", id)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
         }
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafiomobilemarvel.R
 import com.example.desafiomobilemarvel.service.listener.CharacterListener
-import com.example.desafiomobilemarvel.service.model.CharacterModel
+import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 import com.example.desafiomobilemarvel.view.viewholder.CharacterViewHolder
 
 class CharacterAdapter : RecyclerView.Adapter<CharacterViewHolder>() {

@@ -1,17 +1,15 @@
-package com.example.desafiomobilemarvel.service.model
+package com.example.desafiomobilemarvel.service.model.character
 
 import com.example.desafiomobilemarvel.service.model.common.ThumbnailModel
 import com.google.gson.annotations.SerializedName
 
-class ComicModel(
+data class CharacterModel(
     @SerializedName("id")
     val id: Int,
-    @SerializedName("title")
-    val title: String,
+    @SerializedName("name")
+    val name: String,
     @SerializedName("description")
     val description: String,
-    @SerializedName("pageCount")
-    val pageCount: Int,
     @SerializedName("thumbnail")
-    val thumbail: ThumbnailModel
+    val thumbnail: ThumbnailModel
 )

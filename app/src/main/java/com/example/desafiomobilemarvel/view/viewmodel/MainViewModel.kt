@@ -9,7 +9,7 @@ import com.example.desafiomobilemarvel.service.listener.ValidationListener
 import com.example.desafiomobilemarvel.service.model.CharacterModel
 import com.example.desafiomobilemarvel.service.repository.CharacterRepository
 
-class CharacterViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mCharacterRepository = CharacterRepository(application)
 

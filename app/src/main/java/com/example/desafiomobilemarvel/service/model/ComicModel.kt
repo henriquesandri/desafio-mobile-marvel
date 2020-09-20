@@ -17,6 +17,6 @@ class ComicModel {
     var pageCount: Int = 0
 
     @SerializedName("thumbnail")
-    var thumbail: ImageModel? = null
+    var thumbail: ThumbnailModel? = null
 
 }

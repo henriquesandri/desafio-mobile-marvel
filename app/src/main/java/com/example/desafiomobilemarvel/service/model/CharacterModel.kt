@@ -13,13 +13,7 @@ class CharacterModel {
     @SerializedName("description")
     var description: String = ""
 
-    @SerializedName("urls")
-    var urls: Array<UrlModel>? = null
-
     @SerializedName("thumbnail")
-    var thumbnail: ImageModel? = null
-
-    @SerializedName("comics")
-    var comics: List<ResourceModel> = emptyList()
+    var thumbnail: ThumbnailModel? = null
 
 }

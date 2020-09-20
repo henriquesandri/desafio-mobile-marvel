@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface CharacterService {
 
-    @GET("v1/public/characters")
+    @GET("characters")
     fun list(): Call<List<CharacterModel>>
 
 }

@@ -2,6 +2,7 @@ package com.example.desafiomobilemarvel.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         mViewModel.characters.observe(this, Observer {
             if (it.count() > 0) {
                 mAdapter.updateList(it)
+            } else {
+                Toast.makeText(this, R.string.msg_no_items, Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -1,7 +1,9 @@
 package com.example.desafiomobilemarvel.service.listener
 
+import com.example.desafiomobilemarvel.service.model.character.CharacterModel
+
 interface CharacterListener {
 
-    fun onListClick(id: Int)
+    fun onListClick(character: CharacterModel)
 
 }

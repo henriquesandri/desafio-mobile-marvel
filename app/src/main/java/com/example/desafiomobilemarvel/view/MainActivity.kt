@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafiomobilemarvel.R
+import com.example.desafiomobilemarvel.service.constants.MarvelConstants
 import com.example.desafiomobilemarvel.service.listener.CharacterListener
+import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 import com.example.desafiomobilemarvel.view.adapter.CharacterAdapter
 import com.example.desafiomobilemarvel.viewmodel.MainViewModel
 
@@ -29,10 +31,16 @@ class MainActivity : AppCompatActivity() {
         recycler.adapter = mAdapter
 
         mListener = object : CharacterListener {
-            override fun onListClick(id: Int) {
+            override fun onListClick(character: CharacterModel) {
                 val intent = Intent(applicationContext, CharacterDetailActivity::class.java)
                 val bundle = Bundle()
-                bundle.putInt("id", id)
+                bundle.putString(MarvelConstants.BUNDLE.DESCRIPTION, character.description)
+                bundle.putInt(MarvelConstants.BUNDLE.ID, character.id)
+                bundle.putString(MarvelConstants.BUNDLE.NAME, character.name)
+                bundle.putString(
+                    MarvelConstants.BUNDLE.THUMBNAIL,
+                    character.thumbnail.path + "." + character.thumbnail.extension
+                )
                 intent.putExtras(bundle)
                 startActivity(intent)
             }

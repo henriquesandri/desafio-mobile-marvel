@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.desafiomobilemarvel.service.listener.APIListener
+import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 import com.example.desafiomobilemarvel.service.model.comic.ResponseComicModel
 import com.example.desafiomobilemarvel.service.repository.ComicRepository
 

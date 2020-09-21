@@ -2,7 +2,7 @@ package com.example.desafiomobilemarvel.service.listener
 
 interface APIListener<T> {
 
-    fun onSucess(model: T)
+    fun onSuccess(model: T)
 
     fun onFailure(str: String)
 

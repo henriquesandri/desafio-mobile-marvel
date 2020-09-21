@@ -18,7 +18,7 @@ class CharacterDetailViewModel(application: Application) : AndroidViewModel(appl
     fun list(characterId: Int) {
 
         val listener = object : APIListener<ResponseComicModel> {
-            override fun onSucess(model: ResponseComicModel) {
+            override fun onSuccess(model: ResponseComicModel) {
                 mList.value = model
             }
 

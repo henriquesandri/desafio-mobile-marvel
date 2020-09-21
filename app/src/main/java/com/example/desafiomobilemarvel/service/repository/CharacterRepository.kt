@@ -39,7 +39,7 @@ class CharacterRepository(val context: Context) : BaseRepository() {
                         Gson().fromJson(response.errorBody()!!.string(), String::class.java)
                     listener.onFailure(validation)
                 } else {
-                    response.body()?.let { listener.onSucess(it) }
+                    response.body()?.let { listener.onSuccess(it) }
                 }
             }
         })

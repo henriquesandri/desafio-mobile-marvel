@@ -20,7 +20,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun list() {
 
         val listener = object : APIListener<ResponseCharacterModel> {
-            override fun onSucess(model: ResponseCharacterModel) {
+            override fun onSuccess(model: ResponseCharacterModel) {
                 mList.value = model
             }
 

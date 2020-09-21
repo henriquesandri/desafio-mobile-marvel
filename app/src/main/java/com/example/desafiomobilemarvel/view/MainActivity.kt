@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +32,13 @@ class MainActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = mAdapter
 
-        mListener = object : CharacterListener {
+        mListener = object : CharacterListener(
+            recycler.layoutManager as LinearLayoutManager,
+            {
+                mViewModel.list()
+            },
+            MarvelConstants.PARAMS.OFFSET_VAL
+        ) {
             override fun onListClick(character: CharacterModel) {
                 val intent = Intent(applicationContext, CharacterDetailActivity::class.java)
                 val bundle = Bundle()
@@ -48,6 +53,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        mListener.let {
+            recycler.addOnScrollListener(it)
+        }
 
         observe()
     }
@@ -61,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     private fun observe() {
         mViewModel.characters.observe(this, {
             if (it.data.results.count() > 0) {
-                mAdapter.updateList(it.data.results)
+                mAdapter.updateList(it.data.results.toMutableList())
                 progress_bar.visibility = View.INVISIBLE
                 text_progress.visibility = View.INVISIBLE
             } else {

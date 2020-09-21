@@ -23,6 +23,7 @@ class MarvelConstants private constructor() {
         const val HASH = "hash"
         const val LIMIT = "limit"
         const val OFFSET = "offset"
+        const val OFFSET_VAL = 6
         const val TS = "ts"
     }
 

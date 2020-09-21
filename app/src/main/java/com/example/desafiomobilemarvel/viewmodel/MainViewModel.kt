@@ -31,5 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         mCharacterRepository.list(listener, limit, offset)
 
+        offset += limit
+
     }
 }

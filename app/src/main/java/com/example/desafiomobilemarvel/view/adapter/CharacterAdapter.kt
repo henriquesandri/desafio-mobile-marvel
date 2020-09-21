@@ -10,7 +10,7 @@ import com.example.desafiomobilemarvel.view.viewholder.CharacterViewHolder
 
 class CharacterAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
 
-    private var mList: List<CharacterModel> = arrayListOf()
+    private var mList: MutableList<CharacterModel> = arrayListOf()
     private lateinit var mListener: CharacterListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -31,8 +31,8 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
         mListener = listener
     }
 
-    fun updateList(list: List<CharacterModel>) {
-        mList = list
+    fun updateList(list: MutableList<CharacterModel>) {
+        mList.addAll(list)
         notifyDataSetChanged()
     }
 

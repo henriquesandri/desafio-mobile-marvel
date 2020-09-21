@@ -2,15 +2,18 @@ package com.example.desafiomobilemarvel.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.desafiomobilemarvel.R
 import com.example.desafiomobilemarvel.service.constants.MarvelConstants
-import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 import com.example.desafiomobilemarvel.view.adapter.ComicAdapter
 import com.example.desafiomobilemarvel.viewmodel.CharacterDetailViewModel
+import kotlinx.android.synthetic.main.activity_character_detail.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class CharacterDetailActivity : AppCompatActivity() {
 
@@ -27,6 +30,8 @@ class CharacterDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_detail)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         mViewModel = ViewModelProvider(this).get(CharacterDetailViewModel::class.java)
 
         val recycler = findViewById<RecyclerView>(R.id.recycler_comic)
@@ -34,6 +39,7 @@ class CharacterDetailActivity : AppCompatActivity() {
         recycler.adapter = mAdapter
 
         loadDataFromActivity()
+        setComponents()
 
         observe()
     }
@@ -41,6 +47,11 @@ class CharacterDetailActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mViewModel.list(mId)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun loadDataFromActivity() {
@@ -53,10 +64,23 @@ class CharacterDetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun setComponents() {
+        text_name_detail.text = mName
+        text_description_detail.text = mDescription
+        Glide.with(this)
+            .load(mThumbnail)
+            .centerCrop()
+            .placeholder(R.mipmap.ic_launcher)
+            .error(R.mipmap.ic_launcher)
+            .fallback(R.mipmap.ic_launcher)
+            .into(image_character_detail)
+    }
+
     private fun observe() {
         mViewModel.comics.observe(this, {
             if (it.data.results.count() > 0) {
                 mAdapter.updateList(it.data.results)
+                progress_bar_detail.visibility = View.INVISIBLE
             } else {
                 Toast.makeText(this, R.string.msg_no_items, Toast.LENGTH_SHORT).show()
             }

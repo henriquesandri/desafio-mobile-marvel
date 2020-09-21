@@ -6,11 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".view.CharacterDetailActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:indeterminateTint="@color/red"/>
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_character_detail"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_gravity="top"
+            android:contentDescription="@string/description_character_image"
+            android:src="@mipmap/ic_launcher" />
+
+        <RelativeLayout
+            android:id="@+id/relative_Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_name_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_description_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_name_detail"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingTop="6dp"
+                android:text="@string/description"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_comic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/linear_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

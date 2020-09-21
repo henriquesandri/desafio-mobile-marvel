@@ -20,8 +20,10 @@ class MarvelConstants private constructor() {
 
     object PARAMS {
         const val API_KEY = "apikey"
-        const val TS = "ts"
         const val HASH = "hash"
+        const val LIMIT = "limit"
+        const val OFFSET = "offset"
+        const val TS = "ts"
     }
 
 }

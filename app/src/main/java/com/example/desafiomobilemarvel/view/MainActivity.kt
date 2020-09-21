@@ -3,7 +3,9 @@ package com.example.desafiomobilemarvel.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.example.desafiomobilemarvel.service.listener.CharacterListener
 import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 import com.example.desafiomobilemarvel.view.adapter.CharacterAdapter
 import com.example.desafiomobilemarvel.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +62,8 @@ class MainActivity : AppCompatActivity() {
         mViewModel.characters.observe(this, {
             if (it.data.results.count() > 0) {
                 mAdapter.updateList(it.data.results)
+                progress_bar.visibility = View.INVISIBLE
+                text_progress.visibility = View.INVISIBLE
             } else {
                 Toast.makeText(this, R.string.msg_no_items, Toast.LENGTH_SHORT).show()
             }

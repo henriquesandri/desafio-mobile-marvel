@@ -16,9 +16,9 @@ class CharacterRepository(val context: Context) : BaseRepository(context) {
 
     private val mRemote = RetrofitClient.createService(CharacterService::class.java)
 
-    fun list(listener: APIListener<ResponseCharacterModel>) {
+    fun list(listener: APIListener<ResponseCharacterModel>, limit: Int, offset: Int) {
 
-        val call: Call<ResponseCharacterModel> = mRemote.list()
+        val call: Call<ResponseCharacterModel> = mRemote.list(limit, offset)
 
         if (!isConnectionAvailable(context)) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))

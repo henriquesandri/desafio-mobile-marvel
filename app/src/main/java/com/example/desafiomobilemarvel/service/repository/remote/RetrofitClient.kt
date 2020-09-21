@@ -14,7 +14,7 @@ class RetrofitClient private constructor() {
 
     companion object {
 
-        private val baseUrl = "http://gateway.marvel.com/v1/public/"
+        private const val baseUrl = "http://gateway.marvel.com/v1/public/"
 
         private fun getRetrofitInstance(): Retrofit {
             return Retrofit.Builder()

@@ -13,6 +13,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val mCharacterRepository = CharacterRepository(application)
 
     private val mList = MutableLiveData<ResponseCharacterModel>()
+    private var limit = 20
+    private var offset = 0
     var characters: LiveData<ResponseCharacterModel> = mList
 
     fun list() {
@@ -27,7 +29,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
 
-        mCharacterRepository.list(listener)
+        mCharacterRepository.list(listener, limit, offset)
 
     }
 }

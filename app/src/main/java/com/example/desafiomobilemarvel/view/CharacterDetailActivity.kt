@@ -13,7 +13,6 @@ import com.example.desafiomobilemarvel.service.constants.MarvelConstants
 import com.example.desafiomobilemarvel.view.adapter.ComicAdapter
 import com.example.desafiomobilemarvel.viewmodel.CharacterDetailViewModel
 import kotlinx.android.synthetic.main.activity_character_detail.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class CharacterDetailActivity : AppCompatActivity() {
 

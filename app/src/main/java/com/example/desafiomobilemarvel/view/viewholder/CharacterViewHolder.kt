@@ -9,7 +9,7 @@ import com.example.desafiomobilemarvel.R
 import com.example.desafiomobilemarvel.service.listener.CharacterListener
 import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 
-class CharacterViewHolder(itemView: View, val listener: CharacterListener) :
+class CharacterViewHolder(itemView: View, private val listener: CharacterListener) :
     RecyclerView.ViewHolder(itemView) {
 
     private var mTextName: TextView = itemView.findViewById(R.id.text_name)
@@ -19,7 +19,7 @@ class CharacterViewHolder(itemView: View, val listener: CharacterListener) :
     fun bindData(character: CharacterModel) {
 
         this.mTextName.text = character.name
-        if (character.description.equals("")) {
+        if (character.description == "") {
             this.mTextDescription.text = itemView.context.getString(R.string.msg_no_description)
         } else {
             this.mTextDescription.text = character.description

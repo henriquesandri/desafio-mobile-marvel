@@ -1,6 +1,5 @@
 package com.example.desafiomobilemarvel.service.model.character
 
-import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 import com.google.gson.annotations.SerializedName
 
 data class DataCharacterModel(

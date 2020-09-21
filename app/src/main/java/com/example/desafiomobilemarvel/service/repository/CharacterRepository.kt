@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CharacterRepository(val context: Context) : BaseRepository(context) {
+class CharacterRepository(val context: Context) : BaseRepository() {
 
     private val mRemote = RetrofitClient.createService(CharacterService::class.java)
 

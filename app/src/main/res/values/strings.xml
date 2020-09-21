@@ -6,6 +6,7 @@
 
     <string name="msg_loading">Hackeando base de dados do J.A.R.V.I.S., por favor aguarde…</string>
     <string name="msg_no_description">Este item não possui descrição</string>
+    <string name="msg_no_comics">Houve um problema ao carregar os comics deste personagem. Tente novamente mais tarde, ou visualize outro personagem</string>
     <string name="msg_no_items">Não foi possível carregar os itens da lista. Por favor, tente novamente mais tarde</string>
 
     <string name="description">Descrição</string>

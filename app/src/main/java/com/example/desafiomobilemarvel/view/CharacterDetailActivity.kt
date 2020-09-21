@@ -81,7 +81,7 @@ class CharacterDetailActivity : AppCompatActivity() {
                 mAdapter.updateList(it.data.results)
                 progress_bar_detail.visibility = View.INVISIBLE
             } else {
-                Toast.makeText(this, R.string.msg_no_items, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.msg_no_comics, Toast.LENGTH_LONG).show()
             }
         })
     }

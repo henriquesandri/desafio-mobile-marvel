@@ -12,20 +12,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mCharacterRepository = CharacterRepository(application)
 
-    private val mList = MutableLiveData<ResponseCharacterModel>()
+    private val mResponse = MutableLiveData<ResponseCharacterModel>()
     private var limit = 20
     private var offset = 0
-    var characters: LiveData<ResponseCharacterModel> = mList
+    var characters: LiveData<ResponseCharacterModel> = mResponse
 
     fun list() {
 
         val listener = object : APIListener<ResponseCharacterModel> {
             override fun onSuccess(model: ResponseCharacterModel) {
-                mList.value = model
+                mResponse.value = model
             }
 
             override fun onFailure(str: String) {
-                mList.value = null
+                mResponse.value = null
             }
         }
 

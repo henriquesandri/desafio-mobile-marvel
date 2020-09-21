@@ -12,18 +12,18 @@ class CharacterDetailViewModel(application: Application) : AndroidViewModel(appl
 
     private val mComicRepository = ComicRepository(application)
 
-    private val mList = MutableLiveData<ResponseComicModel>()
-    var comics: LiveData<ResponseComicModel> = mList
+    private val mResponse = MutableLiveData<ResponseComicModel>()
+    var comics: LiveData<ResponseComicModel> = mResponse
 
     fun list(characterId: Int) {
 
         val listener = object : APIListener<ResponseComicModel> {
             override fun onSuccess(model: ResponseComicModel) {
-                mList.value = model
+                mResponse.value = model
             }
 
             override fun onFailure(str: String) {
-                mList.value = null
+                mResponse.value = null
             }
         }
 

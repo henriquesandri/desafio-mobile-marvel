@@ -43,5 +43,4 @@ class ComicRepository(val context: Context) : BaseRepository() {
             }
         })
     }
-
 }

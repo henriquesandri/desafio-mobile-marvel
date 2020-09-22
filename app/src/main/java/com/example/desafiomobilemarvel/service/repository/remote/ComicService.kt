@@ -8,6 +8,11 @@ import retrofit2.http.Path
 interface ComicService {
 
     @GET("characters/{characterId}/comics")
-    fun list(@Path(value = "characterId", encoded = true) characterId: Int): Call<ResponseComicModel>
+    fun list(
+        @Path(
+            value = "characterId",
+            encoded = true
+        ) characterId: Int
+    ): Call<ResponseComicModel>
 
 }

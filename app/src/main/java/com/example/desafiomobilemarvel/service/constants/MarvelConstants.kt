@@ -10,7 +10,7 @@ class MarvelConstants private constructor() {
     }
 
     object HTTP {
-        const val SUCESS = 200
+        const val SUCCESS = 200
     }
 
     object KEYS {

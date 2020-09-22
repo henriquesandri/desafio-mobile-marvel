@@ -5,9 +5,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.desafiomobilemarvel.service.model.character.CharacterModel
 
 abstract class CharacterListener(
-        private val layoutManager: LinearLayoutManager,
-        private val askForMore: () -> Unit,
-        private val offset: Int
+    private val layoutManager: LinearLayoutManager,
+    private val askForMore: () -> Unit,
+    private val offset: Int
 ) : RecyclerView.OnScrollListener() {
     private var finishedPagination: Boolean = false
 
@@ -24,5 +24,4 @@ abstract class CharacterListener(
             askForMore()
         }
     }
-
 }

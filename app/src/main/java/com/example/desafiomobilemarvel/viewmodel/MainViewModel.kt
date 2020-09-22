@@ -18,7 +18,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var characters: LiveData<ResponseCharacterModel> = mResponse
 
     fun list() {
-
         val listener = object : APIListener<ResponseCharacterModel> {
             override fun onSuccess(model: ResponseCharacterModel) {
                 mResponse.value = model
@@ -28,10 +27,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 mResponse.value = null
             }
         }
-
         mCharacterRepository.list(listener, limit, offset)
-
         offset += limit
-
     }
 }

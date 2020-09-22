@@ -12,7 +12,8 @@ class ComicAdapter : RecyclerView.Adapter<ComicViewHolder>() {
     private var mList: List<ComicModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
-        val item = LayoutInflater.from(parent.context).inflate(R.layout.row_comic_list, parent, false)
+        val item =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_comic_list, parent, false)
         return ComicViewHolder(item)
     }
 
@@ -28,5 +29,4 @@ class ComicAdapter : RecyclerView.Adapter<ComicViewHolder>() {
         mList = list
         notifyDataSetChanged()
     }
-
 }

@@ -2,7 +2,7 @@ package com.example.desafiomobilemarvel.service.model.comic
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseComicModel (
+data class ResponseComicModel(
     @SerializedName("code")
     val code: Int,
     @SerializedName("etag")

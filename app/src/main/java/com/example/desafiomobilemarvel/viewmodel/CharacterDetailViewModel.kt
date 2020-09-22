@@ -16,7 +16,6 @@ class CharacterDetailViewModel(application: Application) : AndroidViewModel(appl
     var comics: LiveData<ResponseComicModel> = mResponse
 
     fun list(characterId: Int) {
-
         val listener = object : APIListener<ResponseComicModel> {
             override fun onSuccess(model: ResponseComicModel) {
                 mResponse.value = model
@@ -28,7 +27,5 @@ class CharacterDetailViewModel(application: Application) : AndroidViewModel(appl
         }
 
         mComicRepository.list(characterId, listener)
-
     }
-
 }

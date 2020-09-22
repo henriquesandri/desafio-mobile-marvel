@@ -2,7 +2,7 @@ package com.example.desafiomobilemarvel.service.model.comic
 
 import com.google.gson.annotations.SerializedName
 
-data class DataComicModel (
+data class DataComicModel(
     @SerializedName("offset")
     val offset: Int,
     @SerializedName("limit")

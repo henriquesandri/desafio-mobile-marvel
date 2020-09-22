@@ -17,7 +17,6 @@ class ComicRepository(val context: Context) : BaseRepository() {
     private val mRemote = RetrofitClient.createService(ComicService::class.java)
 
     fun list(characterId: Int, listener: APIListener<ResponseComicModel>) {
-
         val call: Call<ResponseComicModel> = mRemote.list(characterId)
 
         if (!isConnectionAvailable(context)) {
@@ -34,7 +33,7 @@ class ComicRepository(val context: Context) : BaseRepository() {
                 call: Call<ResponseComicModel>,
                 response: Response<ResponseComicModel>
             ) {
-                if (response.code() != MarvelConstants.HTTP.SUCESS) {
+                if (response.code() != MarvelConstants.HTTP.SUCCESS) {
                     val validation =
                         Gson().fromJson(response.errorBody()!!.string(), String::class.java)
                     listener.onFailure(validation)
@@ -43,7 +42,6 @@ class ComicRepository(val context: Context) : BaseRepository() {
                 }
             }
         })
-
     }
 
 }

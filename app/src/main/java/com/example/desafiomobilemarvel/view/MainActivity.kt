@@ -32,7 +32,16 @@ class MainActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = mAdapter
 
-        mListener = object : CharacterListener(
+        mListener = getListener(recycler)
+        mListener.let {
+            recycler.addOnScrollListener(it)
+        }
+
+        observe()
+    }
+
+    private fun getListener(recycler: RecyclerView): CharacterListener {
+        return object : CharacterListener(
             recycler.layoutManager as LinearLayoutManager,
             {
                 mViewModel.list()
@@ -53,11 +62,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        mListener.let {
-            recycler.addOnScrollListener(it)
-        }
-
-        observe()
     }
 
     override fun onResume() {
@@ -68,12 +72,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun observe() {
         mViewModel.characters.observe(this, {
-            if (it.data.results.count() > 0) {
-                mAdapter.updateList(it.data.results.toMutableList())
+            try {
+                if (it.data.results.count() > 0) {
+                    mAdapter.updateList(it.data.results.toMutableList())
+                    progress_bar.visibility = View.INVISIBLE
+                    text_progress.visibility = View.INVISIBLE
+                } else {
+                    Toast.makeText(this, R.string.msg_no_items, Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: NullPointerException) {
                 progress_bar.visibility = View.INVISIBLE
-                text_progress.visibility = View.INVISIBLE
-            } else {
-                Toast.makeText(this, R.string.msg_no_items, Toast.LENGTH_SHORT).show()
+                text_progress.text = getString(R.string.ERROR_INTERNET_CONNECTION)
             }
         })
     }

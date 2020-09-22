@@ -33,7 +33,5 @@ class CharacterViewHolder(itemView: View, private val listener: CharacterListene
             .into(this.mImageCharacter)
 
         itemView.setOnClickListener { listener.onListClick(character) }
-
     }
-
 }

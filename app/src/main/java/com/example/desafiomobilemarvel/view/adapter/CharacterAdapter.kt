@@ -35,5 +35,4 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
         mList.addAll(list)
         notifyDataSetChanged()
     }
-
 }

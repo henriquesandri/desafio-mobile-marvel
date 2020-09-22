@@ -31,7 +31,5 @@ class ComicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .error(R.mipmap.ic_launcher)
             .fallback(R.mipmap.ic_launcher)
             .into(this.mImageComic)
-
     }
-
 }

@@ -70,7 +70,5 @@ class RetrofitClient private constructor() {
             Timber.d("hash -> $encryptedString")
             return encryptedString ?: ""
         }
-
     }
-
 }

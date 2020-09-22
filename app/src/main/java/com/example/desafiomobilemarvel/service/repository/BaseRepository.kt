@@ -30,7 +30,6 @@ open class BaseRepository {
                 }
             }
         }
-
         return result
     }
 }
